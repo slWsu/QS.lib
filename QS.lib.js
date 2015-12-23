@@ -1,6 +1,5 @@
 "use strict";
-var $_ = new Object, Node, NodeList, HTMLCollection;
-$_ = {
+var $_ = {
     guid: 0,
     eventQ: [],
     NP: Node.prototype,
