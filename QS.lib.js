@@ -1,5 +1,6 @@
 "use strict";
-var $_ = {
+var $_ = new Object, Node, NodeList, HTMLCollection;
+$_ = {
     guid: 0,
     eventQ: [],
     NP: Node.prototype,
@@ -91,6 +92,36 @@ $_.NP.qs = function (q) {
 $_.NP.qa = function (q) {
     return document.querySelectorAll(q, this);
 };
+
+// Crée un fragment DOM pour plusieurs insertions évitant refusion
+// ==============================================================
+$_.fragment = document.createDocumentFragment();
+
+// Helper pour la création de composants Web
+// ======================================================
+/*
+$_.createComponent = function (name, HTML, callback) {
+    var HTMLElement, XProto = Object.create(HTMLElement.prototype);
+    XProto.createdCallback = function () {
+        // 1. Fixez une racine de l'ombre sur l'élément.
+        var shadow = this.createShadowRoot();
+        // 2. Remplissez avec le bon balisage.
+        shadow.innerHTML = HTML;
+    };
+    var XFoo = document.registerElement(name, {prototype: XProto});
+};
+*/
+
+/*
+ (function(doc) {
+ $_.matches = 
+ doc.matchesSelector ||
+ doc.webkitMatchesSelector ||
+ doc.mozMatchesSelector ||
+ doc.oMatchesSelector ||
+ doc.msMatchesSelector;
+ })(document.documentElement);
+ */
 
 // =============================================================================
 // .addClass()
@@ -441,54 +472,7 @@ $_.NLP.replaceClass = function (o, n) {
 
 HTMLCollection.prototype.replaceClass = $_.NLP.replaceClass;
 
-// =============================================================================
-// Fonctions tests
-// -----------------------------------------------------------------------------
-$_.isArray = function (a) {
-    return(Array.isArray(a));
-};
-$_.isObject = function (o) {
-    return(typeof o === 'object');
-};
-$_.isFunction = function (f) {
-    return(typeof f === 'function');
-};
-$_.isVar = function (v) {
-    return (typeof v !== 'undefined');
-};
-$_.isString = function (s) {
-    return(typeof s === 'string');
-};
-$_.isNumber = function (n) {
-    return(typeof n === 'number');
-};
-$_.isMail = function (m) {
-    var reg = new RegExp('^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$', 'i');
-    if (reg.test(m)) {
-        return(true);
-    }
-    else {
-        return(false);
-    }
-};
-$_.isUrl = function (u) {
-    var reg = new RegExp('^((http|https):\/\/)?(www[.])?([a-zA-Z0-9]|-)+([.][a-zA-Z0-9(-|\/|=|?)?]+)+$', 'i');
-    if (reg.test(u)) {
-        return(true);
-    }
-    else {
-        return(false);
-    }
-};
 
-
-// http://memo-web.fr/categorie-javascript-103.php
-
-// =============================================================================
-// Crée un fragment DOM pour plusieurs insertions évitant refusion
-// -----------------------------------------------------------------------------
-
-$_.fragment = document.createDocumentFragment();
 
 $_.NLP.forEach = Array.prototype.forEach;
 HTMLCollection.prototype.forEach = Array.prototype.forEach;
