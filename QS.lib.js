@@ -471,6 +471,25 @@ $_.NLP.replaceClass = function (o, n) {
 
 HTMLCollection.prototype.replaceClass = $_.NLP.replaceClass;
 
+// =============================================================================
+// .getJSON()
+// -----------------------------------------------------------------------------
+// Description : Ajax request GET
+// Param : URL - String with or without params
+// Param : success - function callback
+
+$_.getJSON = function (URL, success) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', URL, true);
+    var data = {};
+    xhr.onreadystatechange = function (e) {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            data = JSON.parse(xhr.responseText);
+            success.call(this, data);
+        }
+    };
+    xhr.send(null);
+};
 
 // =============================================================================
 $_.NLP.forEach = Array.prototype.forEach;

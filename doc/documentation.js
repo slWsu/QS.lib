@@ -344,6 +344,31 @@ var oPages = {
     },
     page5: {
         id: 'page5', // Requis
+        titre: 'Le jSon', // Requis
+        image: {nom: '', alt: 'alt', class: 'imgFull'},
+        introduction: {texte: 'Les jSon QS.lib', icon: 'globe'},
+        contenu: {
+            image: {nom: '', alt: 'alt', class: 'fl'},
+            paragraphes: {
+                1: 'Q.lib.js possède aussi des fonctions pour jSon.'
+            }
+        },
+        documentation: {
+            image: {nom: '', alt: 'alt', class: 'imgFull'},
+            introduction: {texte: 'Les différentes méthodes.', icon: 'globe'},
+            step: {
+                1: {
+                    titre: '.getJSON()',
+                    description: '.getJSON() permet de récupérer des données sous un format jSon. <br />Prends en parametre  n\'importe quelle url ave ou sans vers un serveur qui renvoie des données au format json',
+                    image: {nom: '', alt: 'alt', class: 'imgFull'},
+                    demo: {site: 'jsfiddle', url: ''},
+                    code: {langage: 'javascript', snippet: '$_.getJSON(url, function (data) { console.log(data); });'}
+                }
+            }
+        }
+    },
+    page6: {
+        id: 'page6', // Requis
         titre: 'Quelques plugins', // Requis
         image: {nom: '', alt: 'alt', class: 'imgFull'},
         introduction: {texte: 'Les évènements QS.lib', icon: 'globe'},
