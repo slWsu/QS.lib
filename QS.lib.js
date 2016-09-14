@@ -100,17 +100,17 @@ $_.fragment = document.createDocumentFragment();
 // Helper pour la création de composants Web
 // ======================================================
 /*
-$_.createComponent = function (name, HTML, callback) {
-    var HTMLElement, XProto = Object.create(HTMLElement.prototype);
-    XProto.createdCallback = function () {
-        // 1. Fixez une racine de l'ombre sur l'élément.
-        var shadow = this.createShadowRoot();
-        // 2. Remplissez avec le bon balisage.
-        shadow.innerHTML = HTML;
-    };
-    var XFoo = document.registerElement(name, {prototype: XProto});
-};
-*/
+ $_.createComponent = function (name, HTML, callback) {
+ var HTMLElement, XProto = Object.create(HTMLElement.prototype);
+ XProto.createdCallback = function () {
+ // 1. Fixez une racine de l'ombre sur l'élément.
+ var shadow = this.createShadowRoot();
+ // 2. Remplissez avec le bon balisage.
+ shadow.innerHTML = HTML;
+ };
+ var XFoo = document.registerElement(name, {prototype: XProto});
+ };
+ */
 
 /*
  (function(doc) {
@@ -462,7 +462,6 @@ $_.NP.replaceClass = function (o, n) {
 };
 
 $_.NLP.replaceClass = function (o, n) {
-    var args = [].slice.apply(arguments);
     for (var i = 0, L = this.length; i < L; i++) {
         this[i].removeClass(o);
         this[i].addClass(n);
@@ -473,7 +472,7 @@ $_.NLP.replaceClass = function (o, n) {
 HTMLCollection.prototype.replaceClass = $_.NLP.replaceClass;
 
 
-
+// =============================================================================
 $_.NLP.forEach = Array.prototype.forEach;
 HTMLCollection.prototype.forEach = Array.prototype.forEach;
 
