@@ -283,6 +283,19 @@ $_.NP.off = function (eventname, fn) {
 HTMLCollection.prototype._click = $_.NLP._click;
 
 // =============================================================================
+// .rmListeners()
+// -----------------------------------------------------------------------------
+// Supprime tous les listeners d'un node et des enfants du node 
+//
+// Exemple: $_.id("myID").rmListeners()
+// -----------------------------------------------------------------------------
+
+$_.NP.rmListeners = function () {
+    var Clone = this.cloneNode(true);
+    this.parentNode.replaceChild(Clone, this);
+};
+
+// =============================================================================
 // .hasClass()
 // -----------------------------------------------------------------------------
 // Retourne la valeur d'une propriété de style pour la première élément de l'ensemble 

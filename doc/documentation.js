@@ -338,6 +338,13 @@ var oPages = {
                     image: {nom: '', alt: 'alt', class: 'imgFull'},
                     demo: {site: 'jsfiddle', url: ''},
                     code: {langage: 'javascript', snippet: '$_.id( "menu1" ).off("click", changePage);'}
+                },
+                3: {
+                    titre: '.rmListeners();',
+                    description: 'Supprime tous les listeners d\'un node et des enfants du node',
+                    image: {nom: '', alt: 'alt', class: 'imgFull'},
+                    demo: {site: 'jsfiddle', url: ''},
+                    code: {langage: 'javascript', snippet: '$_.id("myID").rmListeners();'}
                 }
             }
         }
