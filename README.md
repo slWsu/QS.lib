@@ -91,7 +91,18 @@ $_.id("test").on("click", function() {
 ```
 $_.id( "menu1" ).off("click", changePage);
 ```
+.rmListeners();
+```
+$_.id("myID").rmListeners();
+```
 
+## jSon
+.getJSON();
+```
+$_.getJSON(url, function (data) {
+    console.log(data);
+});
+```
 
 ## Installation
 Décompressez l'archive sur votre site la ou ça vous chante et importez QS.lib.js 
@@ -102,7 +113,7 @@ le dans votre template, ex:
 <html>
     <head>
         <!-- Appel de qs.lib.js -->
-        <script src="_CHEMIN_VERS_QS_LIB_/qs.lib.js"></script>
+        <script src="_CHEMIN_VERS_QS_LIB_/QS.lib.js"></script>
     </head>
     <body>
         <!-- Du html par ici... -->
